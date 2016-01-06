@@ -131,8 +131,100 @@ public class Matrix {
     }//O(n)
 
 
+    public boolean isFull() {
+    	for (Object[] s: matrix) {
+    		for (Object a: s) {
+    			if (a == null){
+    				return false;
+    			}
+    		}
+    	}
+    	return true;
+    }
+
+    public Object[] getRow( int r ) {
+    	Object [] temp = new Object[matrix[r].length];
+    	for (int i = 0; i < matrix[r].length;i++) {
+    		temp[i] = matrix[r][i];
+    	}
+    	return temp;
+    }
+    public Object[] setRow( int r, Object[] newRow ) {
+    	Object [] temp = new Object[matrix[r].length];
+    	for (int i = 0; i < matrix[r].length;i++) {
+    		temp[i] = matrix[r][i];
+    	}
+    	int len = 0;
+    	if (newRow.length < matrix[r].length) {
+    		len = newRow.length;
+    	}
+    	else {
+    		len = matrix.length;
+    	}
+    	for (int a = 0; a < newRow.length;a++) {
+    		matrix[r][a] = newRow[a];
+    	}
+    	return temp;
+    	
+    	
+    }
+    public Object[] setCol( int c, Object[] newCol ) {
+    	Object [] temp = new Object[matrix.length];
+    	for (int i = 0; i < matrix.length;i++) {
+    		temp[i] = matrix[i][c];
+    	}
+    	int len = 0;
+    	if (newCol.length < matrix.length) {
+    		len = newCol.length;
+    	}
+    	else {
+    		len = matrix.length;
+    	}
+    	for (int a = 0; a < len;a++) {
+    		matrix[a][c] = newCol[a];
+    	}
+    	return temp;
+    	
+    }
     //main method for testing
     public static void main( String[] args ) {
+    	Matrix s = new Matrix(4);
+    	System.out.println(s);
+    	
+    	 for (int i = 0; i < s.matrix.length;i++) {
+    		 for (int j = 0; j < s.matrix[i].length;j++) {
+    			 s.matrix[i][j] = (Integer)(int)(Math.random()*5);
+    		 }
+    	 }
+    	 
+     	System.out.println(s);
+     	s.set(0,0,0);
+     	System.out.println(s);
+     	
+     	Matrix t = new Matrix(4);
+     	for (int i = 0; i < t.matrix.length;i++) {
+   		 for (int j = 0; j < t.matrix[i].length;j++) {
+   			 t.matrix[i][j] = s.matrix[i][j];
+   		 }
+   	 }
+     	
+     System.out.println(t);
+     System.out.println(s.equals(t));
+     
+     s.swapRows(0, 1);
+     System.out.println(s);
+
+     s.swapColumns(0, 1);
+
+     System.out.println(s.isFull());
+
+     //System.out.println(t.equals(s));
+
+//TEST CASES FOR NEW METHODS
+     
+     Object[] hello = {1,2,3,4,5,6};
+     s.setCol(0,hello);
+     System.out.println(s);
 
     }
 
