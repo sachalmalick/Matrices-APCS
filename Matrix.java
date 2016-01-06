@@ -186,6 +186,15 @@ public class Matrix {
     	return temp;
     	
     }
+	
+	public Object[] getCol( int c ) {
+		Object [] temp = new Object[matrix.length];
+    	for (int i = 0; i < matrix.length;i++) {
+    		temp[i] = matrix[i][c];
+    	}
+		return temp;
+	}
+
     //main method for testing
     public static void main( String[] args ) {
     	Matrix s = new Matrix(4);
@@ -217,6 +226,8 @@ public class Matrix {
      s.swapColumns(0, 1);
 
      System.out.println(s.isFull());
+	 
+	 
 
      //System.out.println(t.equals(s));
 
@@ -225,6 +236,7 @@ public class Matrix {
      Object[] hello = {1,2,3,4,5,6};
      s.setCol(0,hello);
      System.out.println(s);
+	 System.out.println(s.getCol(0));
 
     }
 
