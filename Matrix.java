@@ -194,6 +194,17 @@ public class Matrix {
     	}
 		return temp;
 	}
+    public boolean contains( Object o ) {
+		for (Object [] s: matrix) {
+			for (Object a: s) {
+				if (a.equals(o)) {
+					return true;
+				}
+			}
+		}
+		
+		return false;
+	}
 
     //main method for testing
     public static void main( String[] args ) {
@@ -237,6 +248,10 @@ public class Matrix {
      s.setCol(0,hello);
      System.out.println(s);
 	 System.out.println(s.getCol(0));
+	 System.out.println(s.contains(0));
+	 System.out.println(s.contains(100));
+	 s.transpose();
+	 System.out.println(s);
 
     }
 
