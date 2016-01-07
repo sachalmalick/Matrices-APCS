@@ -105,7 +105,7 @@ public class Matrix {
 
     public void transpose(){
         for(int i =0; i < size(); i++){
-            for(int j=0; j< size(); j++){
+            for(int j=0; j<= i; j++){
                 swap(i,j,j,i);
             }
         }
