@@ -1,5 +1,5 @@
 /*
-Shantanu Jha
+Sachal Malick and Shantanu Jha
 APCS1 pd5
 HW54--Red vs Blue
 2016-01-06
